@@ -1,6 +1,7 @@
 package com.ebay.tao.csvreader;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -55,8 +56,12 @@ public class CSVReader implements ApplicationRunner {
 
 	private static void readFile() throws IOException {
 		String filePath = "C:\\Windows\\Temp\\BCDProcessingFiles\\waiting_recon_3\\item_bcdfile00003_f0001.man.csv";
+		String localInput = "input/item_bcdfile00003_f0001.man.csv";
+		File externalfile = new File(localInput);
+		ClassLoader classLoader = CSVReader.class.getClassLoader();
+		File file = new File(classLoader.getResource(localInput).getFile());
 
-		try (FileReader fileReader = new FileReader(filePath);
+		try (FileReader fileReader = new FileReader(file);
 				BufferedReader reader = new BufferedReader(fileReader);) {
 
 			CSVParser records = CSVFormat.EXCEL.parse(fileReader);
@@ -67,7 +72,7 @@ public class CSVReader implements ApplicationRunner {
 					Double amount = Double.valueOf(r.get(6));
 					BigDecimal bd = new BigDecimal(Math.abs(amount)).setScale(2, RoundingMode.HALF_EVEN);
 					BigDecimal bd2 = new BigDecimal(Math.abs(amount)).setScale(2, RoundingMode.HALF_UP);
-					System.out.println(ToStringBuilder.reflectionToString(new Object[]{r.getRecordNumber(), amount, bd, bd2}));
+					System.out.println(ToStringBuilder.reflectionToString(new Object[]{r.getRecordNumber(), amount, bd.doubleValue(), bd2.doubleValue()}));
 				}
 
 			});

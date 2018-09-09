@@ -1,3 +1,8 @@
 item,account type, account id, action, reason, category, amount, currency, memo, transaction
-120987654321,o,883726001,5,23,,8.123456,840,because we want to, 11987654321
+120987654321,o,883726001,5,23,,8.123456,840,"because we ""want"" to, really", 11987654321
+120987654321,o,883726001,5,23,,8.115,840,"because we ""want"" to, really", 11987654321
+120987654321,o,883726001,5,23,,8.125,840,"because we ""want"" to, really", 11987654321
+120987654321,o,883726001,5,23,,8.1234567,840,"because we ""want"" to, really", 11987654321
+120987654321,o,883726001,5,23,,8.123456,840,"because we ""want"" to, really", 11987654321
+120987654321,o,883726001,5,23,,8.123456,840,"because we ""want"" to, really", 11987654321
 total number 1, End
