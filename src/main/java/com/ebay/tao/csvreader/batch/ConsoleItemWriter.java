@@ -1,4 +1,4 @@
-package com.ebay.tao.csvreader.config;
+package com.ebay.tao.csvreader.batch;
 
 import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;

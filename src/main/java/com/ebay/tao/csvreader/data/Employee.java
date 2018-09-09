@@ -1,4 +1,4 @@
-package com.ebay.tao.csvreader.config;
+package com.ebay.tao.csvreader.data;
 
 public class Employee {
 

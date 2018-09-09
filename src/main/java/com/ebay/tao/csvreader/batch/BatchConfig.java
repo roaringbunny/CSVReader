@@ -1,5 +1,6 @@
-package com.ebay.tao.csvreader.config;
+package com.ebay.tao.csvreader.batch;
 
+import com.ebay.tao.csvreader.data.Employee;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -46,7 +47,6 @@ public class BatchConfig {
 	public FlatFileItemReader<Employee> reader() {
 		FlatFileItemReader<Employee> reader = new FlatFileItemReader<>();
 		reader.setResource(new FileSystemResource("input/inputData.csv"));
-		reader.setLinesToSkip(1);
 		reader.setLineMapper(new DefaultLineMapper() {
 			{
 				setLineTokenizer(new DelimitedLineTokenizer() {
